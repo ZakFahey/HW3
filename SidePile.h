@@ -6,8 +6,6 @@ class SidePile : public CardCollection
 private:
 	//The index where cards are taken and put
 	int top;
-	//The content array
-	int cards[52];
 
 public:
 	SidePile();
@@ -16,5 +14,5 @@ public:
 	//Takes a card from the top of the pile
 	int Take();
 	//Returns how many cards are in the pile
-	int CardsLeft();
+	int CardsLeft() { return top; }
 };

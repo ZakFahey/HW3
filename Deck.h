@@ -8,6 +8,8 @@ private:
 	int bottom;
 	//The index where cards are taken
 	int top;
+	//The number of cards in the deck
+	int totalCards;
 	//The content array
 	int cards[52];
 
@@ -18,5 +20,5 @@ public:
 	//Takes a card from the top of the deck
 	int Take();
 	//Returns how many cards are in the deck
-	int CardsLeft();
+	int CardsLeft() { return totalCards; }
 };

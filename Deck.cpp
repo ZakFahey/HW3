@@ -6,12 +6,13 @@ Deck::Deck()
 {
 	bottom = 0;
 	top = 0;
+	totalCards = 0;
 }
 
 //Places a card at the bottom of the deck
 void Deck::Put(int card)
 {
-	if (CardsLeft() == Size())
+	if (totalCards == Size())
 	{
 		throw DeckFullException();
 	}
@@ -21,12 +22,13 @@ void Deck::Put(int card)
 	{
 		bottom = Size() - 1;
 	}
+	totalCards++;
 }
 
 //Takes a card from the top of the deck
 int Deck::Take()
 {
-	if (top == bottom)
+	if (totalCards == 0)
 	{
 		throw NoCardException();
 	}
@@ -35,15 +37,6 @@ int Deck::Take()
 	{
 		top = Size() - 1;
 	}
+	totalCards--;
 	return cards[top];
-}
-
-//Returns how many cards are in the deck
-int Deck::CardsLeft()
-{
-	if (top >= bottom)
-	{
-		return top - bottom;
-	}
-	return top - bottom + Size();
 }

@@ -28,9 +28,3 @@ int SidePile::Take()
 	top--;
 	return cards[top];
 }
-
-//Returns how many cards are in the pile
-int SidePile::CardsLeft()
-{
-	return top;
-}
