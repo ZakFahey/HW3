@@ -3,9 +3,7 @@ class CardCollection
 {
 protected:
 	//The content array
-	int cards[52];
-	//Returns the maximum size of the collection
-	int Size();
+	static const int cardStack[];
 
 public:
 	virtual void Put(int card) = 0;

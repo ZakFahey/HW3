@@ -17,6 +17,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Visual C++ cache files
+*.opendb
+
 # =========================
 # Operating System Files
 # =========================

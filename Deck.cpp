@@ -2,17 +2,24 @@
 #include "Deck.h"
 #include "Exceptions.h"
 
-Deck::Deck()
+Deck::Deck(int a, int z)
 {
 	bottom = 0;
-	top = 0;
-	totalCards = 0;
+	top = (z - a) + 1;
+	totalCards = top;
+
+	int index = 0;
+	for (a; a <= z; a++)
+	{
+		cards[index] = cardStack[a];
+		index++;
+	}
 }
 
 //Places a card at the bottom of the deck
 void Deck::Put(int card)
 {
-	if (totalCards == Size())
+	if (totalCards == sizeof(cards))
 	{
 		throw DeckFullException();
 	}
@@ -20,7 +27,7 @@ void Deck::Put(int card)
 	bottom--;
 	if (bottom <= 0)
 	{
-		bottom = Size() - 1;
+		bottom = sizeof(*cards) - 1;
 	}
 	totalCards++;
 }
@@ -35,8 +42,14 @@ int Deck::Take()
 	top--;
 	if (top <= 0)
 	{
-		top = Size() - 1;
+		top = sizeof(*cards) - 1;
 	}
 	totalCards--;
 	return cards[top];
+}
+
+//Peek the top card
+int Deck::Peek()
+{
+	return cards[top-1];
 }

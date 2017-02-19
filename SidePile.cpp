@@ -10,7 +10,7 @@ SidePile::SidePile()
 //Places a card at the top of the pile
 void SidePile::Put(int card)
 {
-	if (top >= Size() - 1)
+	if (top >= sizeof(cards) - 1)
 	{
 		throw DeckFullException();
 	}

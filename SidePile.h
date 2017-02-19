@@ -1,11 +1,13 @@
 #pragma once
-#include "CardCollection.h"
+#include "Deck.h"
 
 class SidePile : public CardCollection
 {
 private:
 	//The index where cards are taken and put
 	int top;
+	//Individual decks
+	int cards[52];
 
 public:
 	SidePile();
